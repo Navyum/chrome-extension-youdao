@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="settingsPageTitle">YoudaoNote Export - 设置</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="settings-container">
+    <!-- Left: Sidebar -->
+    <div class="settings-sidebar">
+      <div class="sidebar-header">
+        <img src="icons/icon48.png" alt="YoudaoNote Export" class="sidebar-icon">
+        <div class="sidebar-brand-text">
+          <span class="sidebar-title">YoudaoNote</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="general">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span data-i18n="navGeneral">通用设置</span>
+        </a>
+        <a href="#" class="nav-item" data-section="about">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+          <span data-i18n="navAbout">关于</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="sidebar-version" data-version>v0.1.0</span>
+      </div>
+    </div>
+
+    <!-- Center: Content -->
+    <div class="settings-content">
+      <!-- General Settings -->
+      <section id="general" class="settings-section active">
+        <header class="section-header">
+          <h2 data-i18n="navGeneral">通用设置</h2>
+          <p data-i18n="settingsGeneralDesc">当前版本无需额外配置，保持浏览器登录即可导出。</p>
+        </header>
+
+        <div class="form-card tip-card">
+          <p class="tip-text"><svg class="tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6m-5-4h4m.5-8a4 4 0 1 1-5 0V7a2 2 0 0 1 4 0v-.5z"/><line x1="12" y1="2" x2="12" y2="2.01"/></svg><span data-i18n="authTip">鉴权说明：只要保持在浏览器中登录 note.youdao.com，扩展会自动读取 Cookie 完成鉴权，无需手动配置 Token。</span></p>
+        </div>
+
+        <div class="form-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="exportBehaviorTitle">导出行为</span></h4>
+          <p class="about-text" data-i18n="exportBehaviorDesc1">导出结果统一为 Markdown 文件和同层 assets 资源目录。普通图片、Draw.io、Excalidraw 等资源会放入 assets；mindmap 和表格会转换为 Markdown。</p>
+          <p class="about-text" data-i18n="exportBehaviorDesc2">导出任务会在后台执行，关闭弹窗不会中断。完成后浏览器会自动下载 ZIP。</p>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="settings-section">
+        <header class="section-header">
+          <h2 data-i18n="settingsAboutTitle">关于 YoudaoNote Export</h2>
+          <p data-i18n="settingsAboutDesc">零门槛、一键式的有道云笔记批量导出工具</p>
+        </header>
+
+        <div class="form-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="projectIntroTitle">项目说明</span></h4>
+          <p class="about-text" data-i18n="projectIntroDesc1">YoudaoNote Export 是一款专为有道云笔记用户打造的 Chrome 扩展，帮助你一键批量导出笔记为 Markdown 格式。无论是迁移到 Obsidian、Notion，还是做定期备份，都能轻松搞定。</p>
+          <p class="about-text" data-i18n="projectIntroDesc2">所有数据处理完全在本地完成，不收集、不上传任何用户数据。</p>
+        </div>
+
+        <div class="form-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span data-i18n="featuresTitle">功能特性</span></h4>
+          <div class="feature-grid">
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><div class="feature-detail"><strong data-i18n="featureBatchTitle">批量导出</strong><span data-i18n="featureBatchDesc">一键导出所有笔记本，保留完整目录结构</span></div></div>
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div class="feature-detail"><strong data-i18n="featureMarkdownTitle">Markdown 转换</strong><span data-i18n="featureMarkdownDesc">XML/JSON 格式笔记自动转换为标准 Markdown</span></div></div>
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="feature-detail"><strong data-i18n="featureImageTitle">图片本地化</strong><span data-i18n="featureImageDesc">自动下载笔记中的图片，替换为本地相对路径</span></div></div>
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg><div class="feature-detail"><strong data-i18n="featureZipTitle">ZIP 打包</strong><span data-i18n="featureZipDesc">导出结果自动打包为 ZIP 文件，一次性下载</span></div></div>
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="feature-detail"><strong data-i18n="featureProgressTitle">实时进度</strong><span data-i18n="featureProgressDesc">可视化进度条，支持暂停和继续导出</span></div></div>
+            <div class="feature-item"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div class="feature-detail"><strong data-i18n="featurePrivacyTitle">隐私安全</strong><span data-i18n="featurePrivacyDesc">纯本地处理，零数据上传，自动读取浏览器 Cookie</span></div></div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span data-i18n="versionInfoTitle">版本信息</span></h4>
+          <div class="version-info">
+            <div class="version-row"><span class="version-label" data-i18n="currentVersion">当前版本</span><span class="version-value" data-version>v0.1.0</span></div>
+            <div class="version-row"><span class="version-label">Manifest</span><span class="version-value">V3</span></div>
+            <div class="version-row"><span class="version-label" data-i18n="compatibleBrowsers">兼容浏览器</span><span class="version-value">Chrome 88+ / Edge 88+</span></div>
+            <div class="version-row"><span class="version-label" data-i18n="i18nLabel">国际化</span><span class="version-value" data-i18n="i18nValue">中文 / English</span></div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span data-i18n="contactTitle">联系反馈</span></h4>
+          <p class="about-text" data-i18n="contactDesc">如果你在使用中遇到问题，或有好的建议，欢迎通过以下方式联系：</p>
+          <div class="about-links">
+            <a href="mailto:yhj2433488839@gmail.com" class="about-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="emailFeedback">邮件反馈</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-card disclaimer-card">
+          <h4 class="card-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span data-i18n="disclaimerTitle">免责声明</span></h4>
+          <ul class="disclaimer-list">
+            <li data-i18n="disclaimer1">本扩展为个人开源项目，与有道云笔记（note.youdao.com）官方无任何关联。</li>
+            <li data-i18n="disclaimer2">仅供用户导出和备份自己有权访问的笔记内容，请勿用于未经授权的数据采集。</li>
+            <li data-i18n="disclaimer3">使用本工具导出的内容，其版权归原作者所有，用户应遵守相关法律法规。</li>
+            <li data-i18n="disclaimer4">作者不对因使用本工具导致的任何数据丢失、账号风险或其他损失承担责任。</li>
+            <li data-i18n="disclaimer5">本工具不收集、不存储、不上传任何用户数据，所有操作均在本地浏览器中完成。</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right: Tips -->
+    <div class="settings-tips">
+      <div class="tips-card sponsor-card">
+        <div class="tips-header">
+          <svg class="tips-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h4 data-i18n="supportTitle">支持与鼓励</h4>
+        </div>
+        <p class="tips-desc" data-i18n="supportDesc">如果 YoudaoNote Export 帮到了你，不妨请我喝杯咖啡。你的支持是持续维护的动力。</p>
+        <div class="sponsor-qr-wrap">
+          <span class="sponsor-qr-badge" data-i18n="sponsorDeveloper">赞助开发者</span>
+          <img src="assets/sp.jpeg" alt="赞助二维码" class="sponsor-qr" data-i18n-alt="sponsorQrAlt">
+        </div>
+        <p class="sponsor-tip" data-i18n="sponsorTipShort">微信扫码，金额随意</p>
+      </div>
+
+      <div class="tips-card">
+        <div class="tips-header">
+          <svg class="tips-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+          <h4 data-i18n="tipsTitle">使用小贴士</h4>
+        </div>
+        <ul class="tips-list">
+          <li data-i18n="tip1">导出前请确认已登录有道云</li>
+          <li data-i18n="tip2">关闭弹窗不影响后台导出</li>
+          <li data-i18n="tip3">大量笔记请耐心等待</li>
+          <li data-i18n="tip4">图片资源会放入同层 assets</li>
+          <li data-i18n="tip5">仅导出 Markdown 和依赖资源</li>
+        </ul>
+      </div>
+
+      <div class="tips-card">
+        <div class="tips-header">
+          <svg class="tips-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          <h4 data-i18n="privacyTitle">隐私保护</h4>
+        </div>
+        <p class="tips-desc" data-i18n="privacyDesc">所有数据仅在本地浏览器中处理，不会上传到任何服务器。Cookie 鉴权自动完成，无需手动操作。</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
