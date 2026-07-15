@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    const projectUrl = 'https://github.com/Navyum/chrome-extension-youdaoyun';
+    const projectUrl = 'https://github.com/Navyum/chrome-extension-youdao';
 
     const navbarHTML = `
         <nav class="homepage-nav">

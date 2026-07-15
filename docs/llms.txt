@@ -26,7 +26,7 @@ This site provides tutorials and guides for:
 - All conversion and packaging runs in the local browser.
 - The extension does not upload note contents to third-party servers.
 - It supports common special-format conversion: .lxtable, .mindmap, Draw.io, Excalidraw, and image files.
-- Open source: https://github.com/Navyum/chrome-extension-youdaoyun
+- Open source: https://github.com/Navyum/chrome-extension-youdao
 
 ## High-Value Pages
 1. https://youdao.openmeshx.com/ — Product overview

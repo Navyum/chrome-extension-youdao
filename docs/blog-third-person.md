@@ -181,6 +181,6 @@
 ---
 
 **相关资源：**
-- 有道云笔记导出工具：[GitHub 项目](https://github.com/Navyum/chrome-extension-youdaoyun)
+- 有道云笔记导出工具：[GitHub 项目](https://github.com/Navyum/chrome-extension-youdao)
 - youdaonote-pull：[GitHub](https://github.com/DeppWang/youdaonote-pull)
 - Obsidian：[官网](https://obsidian.md)
