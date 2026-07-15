@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记导出助手隐私政策 - 了解扩展如何在本地处理笔记数据、使用浏览器登录状态并保护你的隐私。">
+    <meta name="keywords" content="有道云笔记导出,隐私政策,数据安全,本地导出,Markdown备份">
+    <meta name="author" content="有道云笔记导出助手">
+    <link rel="canonical" href="https://youdao.openmeshx.com/privacy.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="有道云笔记导出助手">
+    <meta property="og:title" content="隐私政策 - 有道云笔记导出助手">
+    <meta property="og:description" content="了解有道云笔记导出助手如何保护你的隐私。核心处理在浏览器本地完成，不上传笔记内容。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/privacy.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/feat1.png">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="隐私政策 - 有道云笔记导出助手">
+    <meta name="twitter:description" content="核心处理在浏览器本地完成，不上传笔记内容。">
+    <meta name="twitter:image" content="https://youdao.openmeshx.com/images/feat1.png">
+
+    <title>隐私政策 - 有道云笔记导出助手</title>
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://youdao.openmeshx.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "隐私政策",
+        "item": "https://youdao.openmeshx.com/privacy.html"
+      }]
+    }
+    </script>
+</head>
+<body>
+    <main class="homepage">
+        <div class="dot-grid">
+            <div class="dot-grid__wrap">
+                <canvas id="dotCanvas" class="dot-grid__canvas"></canvas>
+            </div>
+        </div>
+
+        <nav class="homepage-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <a href="index.html">
+                        <img src="images/icon-36x36.png" alt="有道云笔记导出助手 Logo">
+                        <span class="logo-text">有道云笔记导出助手</span>
+                    </a>
+                </div>
+                <div class="nav-center">
+                    <a href="index.html#features" class="nav-link">功能特性</a>
+                    <a href="index.html#privacy" class="nav-link">隐私保护</a>
+                    <a href="blog/index.html" class="nav-link">博客</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                </div>
+                <div class="nav-right">
+                    <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener" class="nav-cta-button">
+                        <span>获取扩展</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="policy-section">
+            <div class="policy-container">
+                <header class="policy-header">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="policy-header-icon" xmlns="http://www.w3.org/2000/svg"><path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"></path></svg>
+                    <h1 class="policy-title">隐私政策</h1>
+                    <p class="policy-last-updated">最后更新日期: 2026年7月15日</p>
+                </header>
+
+                <div class="policy-content">
+                    <p>欢迎使用 <strong>有道云笔记导出助手</strong>。本隐私政策说明扩展在导出有道云笔记时如何处理数据，以及我们如何保护你的隐私。</p>
+
+                    <h2>1. 核心隐私原则</h2>
+                    <p>我们相信你的笔记内容属于你。扩展采用本地优先的处理方式：笔记读取、格式转换、资源整理和 ZIP 打包都在你的浏览器中完成。我们不运行用于接收、保存或分析你笔记内容的服务器。</p>
+
+                    <h2>2. 扩展会访问哪些数据</h2>
+                    <h3>2.1 浏览器登录状态</h3>
+                    <p>扩展会使用 Chrome 的 cookies 权限读取有道云笔记相关 Cookie，用于确认你已经登录 note.youdao.com，并以你的身份调用有道云笔记接口。Cookie 不会被上传到第三方服务。</p>
+
+                    <h3>2.2 笔记与资源数据</h3>
+                    <p>当你主动发起导出时，扩展会读取你选中的笔记本、文件夹、笔记正文和引用资源，用于生成 Markdown、assets 目录和最终 ZIP 文件。这些数据仅在本地处理。</p>
+
+                    <h3>2.3 本地任务状态</h3>
+                    <p>扩展会使用浏览器本地存储保存导出进度、任务状态和必要的临时信息，以便关闭弹窗后继续展示进度或恢复界面。</p>
+
+                    <h2>3. 扩展不会做什么</h2>
+                    <ul>
+                        <li>不会上传你的笔记内容到任何第三方服务器。</li>
+                        <li>不会收集或出售个人信息。</li>
+                        <li>不会修改或删除你在有道云笔记中的原始数据。</li>
+                        <li>不会绕过有道云笔记的权限控制；只能导出当前登录账号有权访问的内容。</li>
+                    </ul>
+
+                    <h2>4. 权限说明</h2>
+                    <ul>
+                        <li><strong>cookies：</strong>读取有道云笔记登录状态，用于自动鉴权。</li>
+                        <li><strong>storage：</strong>保存本地任务状态、进度和必要配置。</li>
+                        <li><strong>downloads：</strong>下载生成的 ZIP 文件。</li>
+                        <li><strong>youdao.com 主机权限：</strong>访问有道云笔记接口和资源地址，完成你主动发起的导出任务。</li>
+                    </ul>
+
+                    <h2>5. 第三方服务</h2>
+                    <p>扩展导出功能只与有道云笔记相关域名交互，用于读取你已登录账号可访问的内容。站点本身不包含第三方追踪脚本或分析代码。</p>
+
+                    <h2>6. 你的控制权</h2>
+                    <p>你可以随时停止导出、清理扩展本地任务状态，或通过卸载扩展删除其本地存储数据。你也可以在 Chrome 扩展管理页调整站点访问权限。</p>
+
+                    <h2>7. 联系我们</h2>
+                    <p>如果你对本政策有任何疑问，请通过 <a href="mailto:yhj2433488839@gmail.com">邮件</a> 联系我们，或在 <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">GitHub</a> 提交问题。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="homepage-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="images/icon-36x36.png" alt="有道云笔记导出助手 Logo" class="footer-logo-image">
+                            <span class="footer-logo-text">有道云笔记导出助手</span>
+                        </div>
+                        <p class="footer-description">专业的有道云笔记批量导出解决方案。为隐私而设计，为迁移和备份而生。</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">产品</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html#features">功能特性</a></li>
+                            <li><a href="blog/index.html">博客</a></li>
+                            <li><a href="privacy.html">隐私政策</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">支持</h3>
+                        <ul class="footer-links">
+                            <li><a href="mailto:yhj2433488839@gmail.com">联系我们</a></li>
+                            <li><a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 有道云笔记导出助手. Built for better data freedom.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

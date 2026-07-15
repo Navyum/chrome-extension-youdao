@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="关于有道云笔记导出助手 - 一个关注数据自主权的开源 Chrome 扩展，帮助用户将有道云笔记批量导出为本地 Markdown。">
+    <meta name="keywords" content="有道云笔记导出助手,YoudaoNote Export,有道云笔记备份,开源浏览器扩展">
+    <meta name="author" content="有道云笔记导出助手">
+    <link rel="canonical" href="https://youdao.openmeshx.com/about.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="关于我们 - 有道云笔记导出助手">
+    <meta property="og:description" content="一个关注数据自主权的开源 Chrome 扩展，帮助用户将有道云笔记批量导出为本地 Markdown。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/about.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/icon-36x36.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="关于我们 - 有道云笔记导出助手">
+    <meta name="twitter:description" content="一个关注数据自主权的开源 Chrome 扩展，帮助用户将有道云笔记批量导出为本地 Markdown。">
+
+    <title>关于我们 - 有道云笔记导出助手</title>
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            --stripes: repeating-linear-gradient(100deg, rgba(102, 126, 234, 0.15), rgba(102, 126, 234, 0.15) 7%, transparent 10%, transparent 12%, rgba(102, 126, 234, 0.15) 16%);
+            --rainbow: repeating-linear-gradient(100deg, rgba(96, 165, 250, 0.2) 10%, rgba(232, 121, 249, 0.15) 15%, rgba(96, 165, 250, 0.2) 20%, rgba(94, 234, 212, 0.15) 25%, rgba(96, 165, 250, 0.2) 30%);
+            background-image: var(--stripes), var(--rainbow);
+            background-size: 300%, 200%;
+            background-position: 50% 50%, 50% 50%;
+            filter: blur(10px) opacity(60%) saturate(200%);
+            mask-image: radial-gradient(ellipse at 50% 0, #000 40%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 0, #000 40%, transparent 70%);
+            animation: jumbo 15s linear infinite;
+        }
+        @keyframes jumbo {
+            0% { background-position: 50% 50%, 50% 50%; }
+            100% { background-position: 350% 50%, 350% 50%; }
+        }
+        .homepage-nav, .about-container { position: relative; z-index: 1; }
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        .about-container h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .about-container h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(132, 0, 255, 0.3);
+        }
+        .about-container h3 {
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .about-container p, .about-container li {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .about-container ul { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .about-container a {
+            color: rgb(132, 100, 255);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(132, 0, 255, 0.3);
+        }
+        .about-container a:hover { border-bottom-color: rgb(132, 0, 255); }
+        .author-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        .author-card h3 { margin-top: 0; }
+        .author-card .role {
+            color: rgb(132, 100, 255);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "有道云笔记导出助手",
+      "url": "https://youdao.openmeshx.com/",
+      "logo": "https://youdao.openmeshx.com/images/icon-36x36.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Navyum"
+      },
+      "description": "一个关注数据自主权的开源 Chrome 扩展，帮助用户将有道云笔记批量导出为本地 Markdown。",
+      "sameAs": [
+        "https://github.com/Navyum/chrome-extension-youdaoyun"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://youdao.openmeshx.com/" },
+        { "@type": "ListItem", "position": 2, "name": "关于我们", "item": "https://youdao.openmeshx.com/about.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="dot-grid">
+        <div class="dot-grid__wrap">
+            <canvas id="dotCanvas" class="dot-grid__canvas"></canvas>
+        </div>
+    </div>
+
+    <nav class="homepage-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="images/icon-36x36.png" alt="有道云笔记导出助手 Logo">
+                    <span class="logo-text">有道云笔记导出助手</span>
+                </a>
+            </div>
+            <div class="nav-center">
+                <a href="index.html#features" class="nav-link">功能特性</a>
+                <a href="index.html#privacy" class="nav-link">隐私保护</a>
+                <a href="blog/index.html" class="nav-link">博客</a>
+                <a href="about.html" class="nav-link" style="color: #fff;">关于</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener" class="nav-cta-button">
+                    <span>获取扩展</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <h1>关于有道云笔记导出助手</h1>
+        <p>有道云笔记导出助手（YoudaoNote Export）是一个开源 Chrome 扩展，帮助有道云笔记用户一键批量导出笔记为本地 Markdown。我们相信：<strong>你的笔记数据应该可以被你随时带走。</strong></p>
+
+        <h2>我们的理念</h2>
+        <p>云笔记工具适合长期积累，但迁移、归档和灾备不能被复杂流程卡住。这个项目的目标很明确：让普通用户不需要命令行、不需要手动复制 Cookie，也能把自己的有道云笔记保存为通用、可读、可迁移的 Markdown 文件。</p>
+        <p>项目完全开源，核心处理均在浏览器本地完成。扩展只复用你在浏览器中的 note.youdao.com 登录态读取笔记数据，不运行保存你笔记内容的中转服务。</p>
+
+        <h2>核心能力</h2>
+        <ul>
+            <li>批量导出选中的笔记本和文件夹。</li>
+            <li>导出 Markdown 文件，并把图片和白板等依赖资源保存到同级 assets 目录。</li>
+            <li>转换表格、思维导图、Draw.io、Excalidraw 和图片文件等常见有道特殊格式。</li>
+            <li>后台执行导出任务，关闭弹窗不影响进度。</li>
+            <li>导出完成后自动打包为 ZIP 下载。</li>
+        </ul>
+
+        <h2>团队成员</h2>
+        <div class="author-card" id="navyum">
+            <h3>Navyum</h3>
+            <div class="role">核心开发者 · 项目发起人</div>
+            <p>独立开发者，专注于浏览器扩展和效率工具开发。在 Chrome Extension Manifest V3、云笔记接口分析和数据格式转换方面有实践经验。</p>
+            <p>联系方式：<a href="https://github.com/Navyum" target="_blank" rel="noopener">GitHub @Navyum</a> · <a href="mailto:yhj2433488839@gmail.com">Email</a></p>
+        </div>
+
+        <h2>编辑声明</h2>
+        <p>站点文章基于当前扩展能力和实际开发文档整理，重点覆盖有道云笔记备份、Markdown 迁移、特殊格式转换和数据安全。内容会随项目迭代更新。</p>
+
+        <h2>开源信息</h2>
+        <p>项目源代码托管在 <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">GitHub</a>。欢迎报告问题、提出建议或贡献代码。</p>
+
+        <h2>免责声明</h2>
+        <p>本项目为独立开源项目，与有道云笔记或网易无隶属关系。请仅用于导出和备份你有权访问的笔记内容，并遵守相关服务条款与法律法规。</p>
+    </div>
+
+    <script>
+    (function() {
+        const canvas = document.getElementById('dotCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width, height, dots = [];
+        const gap = 32;
+        const mouse = { x: -1000, y: -1000 };
+        function initDots() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            dots = [];
+            for (let x = 0; x < width; x += gap) {
+                for (let y = 0; y < height; y += gap) {
+                    dots.push({ x, y, originX: x, originY: y, vx: 0, vy: 0, size: 1.5, opacity: 0.15 + Math.random() * 0.1 });
+                }
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            dots.forEach(dot => {
+                const dx = mouse.x - dot.x, dy = mouse.y - dot.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 220) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (220 - dist) / 220;
+                    dot.vx -= Math.cos(angle) * force * 1.8;
+                    dot.vy -= Math.sin(angle) * force * 1.8;
+                    dot.opacity = Math.min(0.9, dot.opacity + 0.1);
+                }
+                dot.vx += (dot.originX - dot.x) * 0.12;
+                dot.vy += (dot.originY - dot.y) * 0.12;
+                dot.vx *= 0.88;
+                dot.vy *= 0.88;
+                dot.x += dot.vx;
+                dot.y += dot.vy;
+                dot.opacity += (0.15 - dot.opacity) * 0.05;
+                ctx.fillStyle = `rgba(255, 255, 255, ${dot.opacity})`;
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('resize', initDots);
+        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        initDots();
+        animate();
+    })();
+    </script>
+</body>
+</html>

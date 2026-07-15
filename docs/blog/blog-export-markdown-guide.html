@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记怎么批量导出 Markdown？使用有道云笔记导出助手，无需命令行和手动复制 Cookie，登录 note.youdao.com 后选择笔记本即可导出 ZIP。">
+    <meta name="keywords" content="有道云笔记导出Markdown,有道云笔记批量导出,有道云转Markdown,有道云笔记备份">
+    <meta name="author" content="小麦">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-export-markdown-guide.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="有道云笔记怎么批量导出 Markdown？零命令行方案">
+    <meta property="og:description" content="从登录、加载笔记本、选择范围到下载 ZIP，完整拆解有道云笔记批量导出 Markdown 的操作流程。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-export-markdown-guide.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-markdown.jpg">
+
+    <title>有道云笔记怎么批量导出 Markdown？零命令行方案 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "有道云笔记怎么批量导出 Markdown？零命令行方案",
+      "description": "使用有道云笔记导出助手批量导出 Markdown 的完整步骤。",
+      "image": "https://youdao.openmeshx.com/images/blog-markdown.jpg",
+      "author": { "@type": "Person", "name": "小麦" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-export-markdown-guide.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">有道云笔记怎么批量导出 Markdown？零命令行方案</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">8分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>小麦 · Markdown 工作流</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-15">2026年7月15日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>如果你想把有道云笔记迁移到 Obsidian、Typora、VS Code 或其他本地 Markdown 工具，最省事的方式是直接导出为 .md 文件和本地 assets 资源目录。</strong></p>
+                    <p>传统做法往往要逐篇复制，或者用脚本配置 Cookie。Chrome 扩展方案把这些步骤收进浏览器界面里：你登录有道云笔记，选择要导出的笔记本，然后等待 ZIP 下载。</p>
+
+                    <h2>导出前准备</h2>
+                    <ul>
+                        <li>使用 Chrome 或 Chromium 系浏览器。</li>
+                        <li>在浏览器中打开 <code>note.youdao.com</code> 并登录你的有道云笔记账号。</li>
+                        <li>确认扩展对 <code>youdao.com</code> 的站点访问权限已开启。</li>
+                        <li>给浏览器预留足够磁盘空间，尤其是图片较多的笔记本。</li>
+                    </ul>
+
+                    <h2>Step 1：打开扩展并加载笔记本</h2>
+                    <p>点击浏览器工具栏中的有道云笔记导出助手图标。如果还没有登录，扩展会提示你先打开有道云笔记登录。登录完成后回到弹窗，点击“加载笔记本”。</p>
+                    <img src="../images/feat1.png" alt="有道云笔记导出助手加载笔记本界面" loading="lazy">
+
+                    <h2>Step 2：选择导出范围</h2>
+                    <p>扩展会展示你的笔记本树。你可以全选，也可以只勾选某个笔记本或文件夹。建议第一次迁移时先选一个小文件夹做试导出，确认结果符合预期后再导出全部内容。</p>
+
+                    <h2>Step 3：开始导出</h2>
+                    <p>点击“开始导出”后，扩展会在后台逐篇读取笔记、下载引用资源、转换 Markdown，并持续更新进度。关闭弹窗不会停止任务，重新打开后可以继续查看状态。</p>
+                    <blockquote>导出过程中不要退出浏览器账号。如果登录状态失效，扩展可能无法继续读取后续笔记。</blockquote>
+
+                    <h2>Step 4：下载 ZIP 并解压</h2>
+                    <p>导出完成后，浏览器会下载一个 ZIP 文件。解压后你会看到类似结构：</p>
+                    <pre><code>Notebook/
+  Project/
+    Meeting Notes.md
+    Mindmap.md
+    assets/
+      Meeting Notes_001.png
+      Board.svg</code></pre>
+                    <p>Markdown 文件可以直接打开；图片和 SVG 等资源保存在同级 assets 目录中，文件内链接使用本地相对路径。</p>
+
+                    <h2>导出质量检查</h2>
+                    <p>建议导出后抽查这些点：</p>
+                    <table>
+                        <thead>
+                            <tr><th>检查项</th><th>判断方式</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>目录结构</td><td>解压后文件夹是否符合原笔记本层级。</td></tr>
+                            <tr><td>图片资源</td><td>随机打开含图片的 Markdown，确认图片能显示。</td></tr>
+                            <tr><td>表格</td><td>打开原本的有道表格笔记，确认已转为 Markdown 表格。</td></tr>
+                            <tr><td>思维导图</td><td>确认层级是否按 Markdown 列表展开。</td></tr>
+                            <tr><td>白板</td><td>确认 Markdown 中是否链接了本地 SVG 文件。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>常见问题</h2>
+                    <h3>为什么只导出 Markdown？</h3>
+                    <p>Markdown 是最适合长期保存和跨工具迁移的通用文本格式。当前项目刻意把输出收敛为 Markdown 和 assets，避免生成一堆难维护的中间格式。</p>
+
+                    <h3>导出会影响原笔记吗？</h3>
+                    <p>不会。扩展只读取数据并在本地转换，不会修改或删除有道云笔记中的原始内容。</p>
+
+                    <h3>单篇失败怎么办？</h3>
+                    <p>扩展会记录失败项，单篇失败不会阻塞整个导出流程。你可以根据错误提示重新登录、检查网络或缩小范围后再试。</p>
+
+                    <h2>下一步迁移</h2>
+                    <p>如果你的目标是 Obsidian，可以直接把解压后的目录作为 Vault 打开。完整操作可以继续看 <a href="blog-obsidian.html">有道云笔记迁移到 Obsidian 指南</a>。</p>
+
+                    <hr>
+                    <p><strong>相关链接：</strong></p>
+                    <ul>
+                        <li>有道云笔记导出助手：<a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">GitHub 项目</a></li>
+                        <li>特殊格式处理：<a href="blog-special-formats.html">查看说明</a></li>
+                    </ul>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">Markdown</span>
+                        <span class="article-tag">批量导出</span>
+                        <span class="article-tag">有道云笔记</span>
+                        <span class="article-tag">ZIP 备份</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>

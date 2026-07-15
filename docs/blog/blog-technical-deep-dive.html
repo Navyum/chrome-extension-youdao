@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="技术复盘：有道云笔记导出助手如何基于 Chrome Extension Manifest V3 批量导出笔记，包含认证、API、转换器、资源本地化和 ZIP 构建流程。">
+    <meta name="keywords" content="Chrome Extension MV3,有道云笔记API,有道云笔记导出技术,Markdown转换,JSZip">
+    <meta name="author" content="Navyum">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-technical-deep-dive.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="技术复盘：Chrome 扩展如何批量导出有道云笔记">
+    <meta property="og:description" content="拆解 MV3 后台任务、有道 API、转换器、资源本地化和 ZIP 构建流程。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-technical-deep-dive.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-technical.jpg">
+
+    <title>技术复盘：Chrome 扩展如何批量导出有道云笔记 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "技术复盘：Chrome 扩展如何批量导出有道云笔记",
+      "description": "有道云笔记导出助手的技术架构复盘。",
+      "image": "https://youdao.openmeshx.com/images/blog-technical.jpg",
+      "author": { "@type": "Person", "name": "Navyum" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-technical-deep-dive.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">技术复盘：Chrome 扩展如何批量导出有道云笔记</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">9分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Navyum · 技术复盘</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-15">2026年7月15日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>有道云笔记导出助手的技术目标很明确：用浏览器扩展完成认证、拉取、转换、资源本地化和 ZIP 下载，尽量不引入服务端依赖。</strong></p>
+
+                    <h2>整体架构</h2>
+                    <p>项目基于 Chrome Extension Manifest V3。弹窗负责交互，Service Worker 负责后台导出任务，核心逻辑拆分在 <code>src/core/</code> 目录下。</p>
+                    <table>
+                        <thead>
+                            <tr><th>模块</th><th>职责</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>auth</td><td>读取浏览器 Cookie，确认 note.youdao.com 登录状态。</td></tr>
+                            <tr><td>youdao-api</td><td>封装有道云笔记接口请求。</td></tr>
+                            <tr><td>exporter</td><td>编排导出流程、进度和错误记录。</td></tr>
+                            <tr><td>converter</td><td>将普通笔记转换为 Markdown。</td></tr>
+                            <tr><td>special-converter</td><td>处理表格、思维导图、白板等特殊格式。</td></tr>
+                            <tr><td>zip-builder</td><td>使用 JSZip 构建最终 ZIP。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>认证设计</h2>
+                    <p>扩展不要求用户手动复制 Cookie。只要浏览器中已登录 note.youdao.com，就可以通过 Chrome cookies API 读取必要登录状态，并在请求有道接口时使用。</p>
+                    <p>这种方式降低了用户门槛，也避免用户把 Cookie 粘贴到第三方网页或命令行工具里。</p>
+
+                    <h2>导出编排</h2>
+                    <p>导出流程大致分为五步：</p>
+                    <ol>
+                        <li>加载笔记本树。</li>
+                        <li>按用户勾选范围收集可导出的文件。</li>
+                        <li>逐个下载笔记正文和资源。</li>
+                        <li>转换为 Markdown，并重写资源链接。</li>
+                        <li>构建 ZIP，通过浏览器下载。</li>
+                    </ol>
+
+                    <h2>资源本地化</h2>
+                    <p>云笔记里常见的问题是图片链接依赖在线服务。导出助手会下载引用资源，保存到同级 assets 目录，再把 Markdown 中的链接替换为相对路径。这是迁移到 Obsidian 等本地工具时最关键的一步。</p>
+
+                    <h2>特殊格式处理</h2>
+                    <p>项目针对常见特殊格式提供独立转换逻辑：表格转 Markdown table，思维导图转缩进列表，Draw.io 和 Excalidraw 输出 SVG 资源并在 Markdown 中引用。</p>
+
+                    <h2>后台任务与状态</h2>
+                    <p>MV3 Service Worker 的生命周期需要谨慎处理。项目把导出状态保存到扩展本地存储，弹窗关闭后后台任务仍可继续执行，用户重新打开弹窗时可以恢复进度展示。</p>
+
+                    <h2>为什么不做服务端</h2>
+                    <p>服务端可以集中处理任务，但会引入隐私、成本和可信问题。这个项目的定位是个人数据导出工具，因此优先选择本地浏览器处理，哪怕实现上需要处理更多浏览器限制。</p>
+
+                    <h2>后续可改进方向</h2>
+                    <ul>
+                        <li>更细粒度的失败重试和错误分类。</li>
+                        <li>更完善的大文件资源限速和排队策略。</li>
+                        <li>更多 Markdown 兼容性测试样例。</li>
+                        <li>导出前后的完整性报告。</li>
+                    </ul>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">Chrome Extension</span>
+                        <span class="article-tag">Manifest V3</span>
+                        <span class="article-tag">JSZip</span>
+                        <span class="article-tag">Markdown 转换</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>

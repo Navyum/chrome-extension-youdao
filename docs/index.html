@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记导出助手 - 一键批量导出有道云笔记为本地 Markdown 备份。保留笔记本层级，自动下载图片资源，支持表格、思维导图、Draw.io、Excalidraw 等常见特殊格式转换。">
+    <meta name="keywords" content="有道云笔记导出,有道云笔记批量导出,有道云笔记备份,有道云转Markdown,有道云笔记迁移,YoudaoNote Export">
+    <meta name="author" content="有道云笔记导出助手">
+    <link rel="canonical" href="https://youdao.openmeshx.com/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="有道云笔记导出助手">
+    <meta property="og:title" content="有道云笔记导出助手 - 一键批量导出为 Markdown">
+    <meta property="og:description" content="在浏览器中批量导出有道云笔记到本地 Markdown。保留文件夹层级，图片资源本地化，特殊格式自动转换。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/feat1.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="800">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="有道云笔记导出助手 - 一键批量导出为 Markdown">
+    <meta name="twitter:description" content="批量导出有道云笔记为 Markdown，保留层级、图片和常见特殊格式。">
+    <meta name="twitter:image" content="https://youdao.openmeshx.com/images/feat1.png">
+
+    <meta name="theme-color" content="#060b22">
+    <title>有道云笔记导出助手 - 一键批量导出 Markdown</title>
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "有道云笔记导出助手",
+      "operatingSystem": "Windows, macOS, Linux",
+      "applicationCategory": "UtilitiesApplication",
+      "browserRequirements": "Requires Chrome or Chromium browser",
+      "url": "https://youdao.openmeshx.com/",
+      "downloadUrl": "https://github.com/Navyum/chrome-extension-youdaoyun",
+      "softwareVersion": "0.1.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "description": "批量导出有道云笔记为本地 Markdown 备份，保留笔记本层级和图片资源，支持常见特殊格式转换。",
+      "featureList": [
+        "批量导出有道云笔记",
+        "导出为 Markdown 文件",
+        "保留笔记本和文件夹层级",
+        "图片与依赖资源本地化",
+        "表格、思维导图、Draw.io、Excalidraw 转换",
+        "本地浏览器处理，隐私安全"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "url": "https://youdao.openmeshx.com/"
+      },
+      "screenshot": [
+        "https://youdao.openmeshx.com/images/feat1.png",
+        "https://youdao.openmeshx.com/images/feat2.png",
+        "https://youdao.openmeshx.com/images/feat3.png",
+        "https://youdao.openmeshx.com/images/feat4.png"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://youdao.openmeshx.com/"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "有道云笔记导出助手是免费的吗？", "acceptedAnswer": { "@type": "Answer", "text": "是。项目免费使用，并以开源方式维护，适合用于个人备份、迁移和长期归档。" } },
+        { "@type": "Question", "name": "导出结果是什么格式？", "acceptedAnswer": { "@type": "Answer", "text": "当前导出结果为 Markdown 文件和同级 assets 资源目录，最终会打包为一个 ZIP 文件下载。" } },
+        { "@type": "Question", "name": "需要手动复制 Cookie 吗？", "acceptedAnswer": { "@type": "Answer", "text": "不需要。只要你已在浏览器中登录 note.youdao.com，扩展会读取浏览器登录状态完成鉴权。" } },
+        { "@type": "Question", "name": "会修改有道云笔记里的原始数据吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。工具只读取你已登录账号可访问的数据，并在浏览器本地转换和打包，不会修改、删除或上传原始笔记。" } },
+        { "@type": "Question", "name": "支持哪些特殊格式？", "acceptedAnswer": { "@type": "Answer", "text": "支持将表格转换为 Markdown 表格，将思维导图转换为 Markdown 大纲，将 Draw.io 和 Excalidraw 白板转换为 Markdown 并链接本地 SVG 资源。" } },
+        { "@type": "Question", "name": "关闭弹窗会中断导出吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。导出任务在扩展后台执行，关闭弹窗后任务仍会继续，重新打开可查看进度。" } }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <main class="homepage">
+        <div class="dot-grid">
+            <div class="dot-grid__wrap">
+                <canvas id="dotCanvas" class="dot-grid__canvas"></canvas>
+            </div>
+        </div>
+
+        <nav class="homepage-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <a href="/">
+                        <img src="images/icon-36x36.png" alt="有道云笔记导出助手 Logo">
+                        <span class="logo-text">有道云笔记导出助手</span>
+                    </a>
+                </div>
+                <div class="nav-center">
+                    <a href="#features" class="nav-link">功能特性</a>
+                    <a href="#privacy" class="nav-link">隐私保护</a>
+                    <a href="blog/index.html" class="nav-link">博客</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                </div>
+                <div class="nav-right">
+                    <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener" class="nav-cta-button">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M131.5 217.5L55.1 100.1c47.6-59.2 119-91.8 192-92.1 42.3-.3 85.5 10.5 124.8 33.2 43.4 25.2 76.4 61.4 97.4 103L264 133.4c-58.1-3.4-113.4 29.3-132.5 84.1zm32.9 38.5c0 46.2 37.4 83.6 83.6 83.6s83.6-37.4 83.6-83.6-37.4-83.6-83.6-83.6-83.6 37.3-83.6 83.6zm314.9-89.2L339.6 174c37.9 44.3 38.5 108.2 6.6 157.2L234.1 503.6c46.5 2.5 94.4-7.7 137.8-32.9 107.4-62 150.9-192 107.4-303.9zM133.7 303.6L40.4 120.1C14.9 159.1 0 205.9 0 256c0 124 90.8 226.7 209.5 244.9l63.7-124.8c-57.6 10.8-113.2-20.8-139.5-72.5z"></path></svg>
+                        <span>获取扩展</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">有道云笔记批量导出<br/>从未如此简单</h1>
+                <p class="hero-subtitle">一键将有道云笔记导出为本地 Markdown 备份。保留笔记本层级，自动下载图片资源，表格、思维导图、白板等常见特殊格式也能转换为可迁移内容。</p>
+                <div class="hero-actions">
+                    <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener" class="hero-primary-button">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M131.5 217.5L55.1 100.1c47.6-59.2 119-91.8 192-92.1 42.3-.3 85.5 10.5 124.8 33.2 43.4 25.2 76.4 61.4 97.4 103L264 133.4c-58.1-3.4-113.4 29.3-132.5 84.1zm32.9 38.5c0 46.2 37.4 83.6 83.6 83.6s83.6-37.4 83.6-83.6-37.4-83.6-83.6-83.6-83.6 37.3-83.6 83.6zm314.9-89.2L339.6 174c37.9 44.3 38.5 108.2 6.6 157.2L234.1 503.6c46.5 2.5 94.4-7.7 137.8-32.9 107.4-62 150.9-192 107.4-303.9zM133.7 303.6L40.4 120.1C14.9 159.1 0 205.9 0 256c0 124 90.8 226.7 209.5 244.9l63.7-124.8c-57.6 10.8-113.2-20.8-139.5-72.5z"></path></svg>
+                        <span>查看安装方式</span>
+                    </a>
+                    <a href="#features" class="hero-secondary-button">了解更多</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="badge-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                        </span>
+                        <span><b>NEW:</b> 表格 / 思维导图 / 白板转换为 Markdown</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="badge-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m16 6-4 4-4-4"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 18h.01"/><path d="M10 18h.01"/></svg>
+                        </span>
+                        <span><b>HOT:</b> Markdown + assets + ZIP 一次性下载</span>
+                    </div>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature-item">
+                        <span class="check-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>免费开源</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <span class="check-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>文件夹层级保留</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <span class="check-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>本地处理</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="card-swap-wrapper">
+                    <div class="CardSwap_cardSwapContainer__UAZtT" id="cardStack"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">强大功能</h2>
+                <p class="section-subtitle">为有道云笔记用户提供更可靠的本地备份与迁移体验。</p>
+            </div>
+            <div class="features-grid">
+                <div class="magic-bento-card" style="--glow-color: 102, 126, 234;">
+                    <div class="feature-badge">New</div>
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">一键批量导出</h3>
+                        <p class="magic-bento-card__description">自动加载笔记本树，选择要导出的笔记本或文件夹后即可批量处理，无需逐篇复制粘贴。</p>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" style="--glow-color: 132, 0, 255;">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">保留笔记本结构</h3>
+                        <p class="magic-bento-card__description">导出的 Markdown 会按有道云笔记中的笔记本和文件夹层级组织，迁移后仍能保持原有知识结构。</p>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" style="--glow-color: 102, 126, 234;">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">Markdown 与资源本地化</h3>
+                        <p class="magic-bento-card__description">笔记统一转换为 Markdown，图片和白板 SVG 等依赖资源保存到同级 assets 目录，链接使用本地相对路径。</p>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" style="--glow-color: 132, 0, 255;">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">特殊格式转换</h3>
+                        <p class="magic-bento-card__description">表格转 Markdown 表格，思维导图转大纲，Draw.io 和 Excalidraw 转为 Markdown 并链接本地 SVG。</p>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" style="--glow-color: 132, 0, 255;">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="10" y1="15" x2="10" y2="9"/><line x1="14" y1="15" x2="14" y2="9"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">后台任务不中断</h3>
+                        <p class="magic-bento-card__description">导出任务在扩展后台继续执行，关闭弹窗不会中断。重新打开后可继续查看导出进度。</p>
+                    </div>
+                </div>
+
+                <div class="magic-bento-card" style="--glow-color: 102, 126, 234;">
+                    <div class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="magic-bento-card__title">隐私安全保障</h3>
+                        <p class="magic-bento-card__description">所有转换和打包都在你的浏览器本地完成。扩展不会将笔记内容上传到任何第三方服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy" class="privacy-section">
+            <div class="privacy-container">
+                <div class="privacy-content">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="privacy-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"></path>
+                    </svg>
+                    <h2 class="privacy-title">我们重视你的隐私</h2>
+                    <p class="privacy-description">有道云笔记导出助手只作为你和 note.youdao.com 之间的本地导出工具。扩展使用浏览器登录态读取你有权访问的笔记，并在本地完成转换、资源下载和 ZIP 打包，不运行保存笔记内容的中转服务器。</p>
+                    <a href="privacy.html" class="privacy-link">查看详细隐私政策</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog-section">
+            <div class="section-header">
+                <h2 class="section-title">导出指南</h2>
+                <p class="section-subtitle">围绕有道云笔记备份、Markdown 迁移和特殊格式转换的实用教程。</p>
+            </div>
+            <div class="blog-list">
+                <a href="blog/blog-third-person.html" class="blog-card">
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">2026年有道云笔记数据导出完全指南：3种方案对比与实操</h3>
+                        <p class="blog-card-desc">命令行、官方逐篇导出和 Chrome 扩展三种路线如何选择，一篇讲清适用场景与取舍。</p>
+                        <span class="blog-card-meta">文/效率君 · 数据迁移指南</span>
+                    </div>
+                    <span class="blog-card-arrow">&rarr;</span>
+                </a>
+                <a href="blog/blog-export-markdown-guide.html" class="blog-card">
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">有道云笔记怎么批量导出 Markdown？零命令行方案</h3>
+                        <p class="blog-card-desc">从登录 note.youdao.com 到下载 ZIP，完整拆解批量导出 Markdown 的操作流程。</p>
+                        <span class="blog-card-meta">文/小麦 · Markdown 工作流</span>
+                    </div>
+                    <span class="blog-card-arrow">&rarr;</span>
+                </a>
+                <a href="blog/blog-special-formats.html" class="blog-card">
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">表格、思维导图、白板怎么导出？有道特殊格式处理说明</h3>
+                        <p class="blog-card-desc">解释 .lxtable、.mindmap、Draw.io、Excalidraw 等文件如何转换为可迁移 Markdown。</p>
+                        <span class="blog-card-meta">文/开发笔记 · 格式转换</span>
+                    </div>
+                    <span class="blog-card-arrow">&rarr;</span>
+                </a>
+                <a href="blog/blog-obsidian.html" class="blog-card">
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">把有道云笔记迁移到 Obsidian：目录、图片和检查清单</h3>
+                        <p class="blog-card-desc">如何把导出的 ZIP 解压为 Obsidian Vault，并检查图片、层级和特殊格式结果。</p>
+                        <span class="blog-card-meta">文/阿辰 · Obsidian 迁移</span>
+                    </div>
+                    <span class="blog-card-arrow">&rarr;</span>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="blog/index.html" style="color: rgb(132, 100, 255); text-decoration: none; font-size: 1rem; border-bottom: 1px solid rgba(132, 0, 255, 0.3);">查看全部文章 &rarr;</a>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+                <p class="section-subtitle">关于有道云笔记导出助手的疑问解答</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">有道云笔记导出助手是免费的吗？</summary>
+                    <div class="faq-answer">是。项目免费使用，并以开源方式维护。你可以用它做个人笔记备份、迁移和长期归档。</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">支持哪些导出格式？</summary>
+                    <div class="faq-answer">当前导出结果为 Markdown 文件和同级 assets 资源目录。图片、Draw.io、Excalidraw 等资源会保存到 assets；表格和思维导图会转换为 Markdown 内容。</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">需要手动复制 Cookie 或 Token 吗？</summary>
+                    <div class="faq-answer">不需要。只要你已在浏览器中登录 note.youdao.com，扩展会读取浏览器登录状态完成鉴权。</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">导出会影响有道云笔记里的原始数据吗？</summary>
+                    <div class="faq-answer">不会。工具只读取数据并在本地转换格式，不会修改、删除或上传你在有道云笔记中的内容。</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">关闭弹窗会中断导出吗？</summary>
+                    <div class="faq-answer">不会。导出任务会在扩展后台执行，关闭弹窗后仍会继续。重新打开弹窗可以查看当前进度。</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">数据安全有保障吗？</summary>
+                    <div class="faq-answer">所有核心处理都在本地浏览器内完成。扩展不会把笔记内容发送到第三方服务器，也不收集用户数据。</div>
+                </details>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">准备好备份你的有道云笔记了吗？</h2>
+                <p class="cta-subtitle">现在就使用有道云笔记导出助手，把你的知识资产保存为可长期访问的本地 Markdown。</p>
+                <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener" class="cta-button">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M131.5 217.5L55.1 100.1c47.6-59.2 119-91.8 192-92.1 42.3-.3 85.5 10.5 124.8 33.2 43.4 25.2 76.4 61.4 97.4 103L264 133.4c-58.1-3.4-113.4 29.3-132.5 84.1zm32.9 38.5c0 46.2 37.4 83.6 83.6 83.6s83.6-37.4 83.6-83.6-37.4-83.6-83.6-83.6-83.6 37.3-83.6 83.6zm314.9-89.2L339.6 174c37.9 44.3 38.5 108.2 6.6 157.2L234.1 503.6c46.5 2.5 94.4-7.7 137.8-32.9 107.4-62 150.9-192 107.4-303.9zM133.7 303.6L40.4 120.1C14.9 159.1 0 205.9 0 256c0 124 90.8 226.7 209.5 244.9l63.7-124.8c-57.6 10.8-113.2-20.8-139.5-72.5z"></path></svg>
+                    <span>查看安装方式</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="homepage-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="images/icon-36x36.png" alt="有道云笔记导出助手 Logo" class="footer-logo-image">
+                            <span class="footer-logo-text">有道云笔记导出助手</span>
+                        </div>
+                        <p class="footer-description">专业的有道云笔记批量导出解决方案。为隐私而设计，为迁移和备份而生。</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">产品</h3>
+                        <ul class="footer-links">
+                            <li><a href="#features">功能特性</a></li>
+                            <li><a href="blog/index.html">博客</a></li>
+                            <li><a href="privacy.html">隐私政策</a></li>
+                            <li><a href="about.html">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">支持</h3>
+                        <ul class="footer-links">
+                            <li><a href="mailto:yhj2433488839@gmail.com">联系我们</a></li>
+                            <li><a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">GitHub</a></li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="https://github.com/Navyum/chrome-extension-youdaoyun" target="_blank" rel="noopener">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="social-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M131.5 217.5L55.1 100.1c47.6-59.2 119-91.8 192-92.1 42.3-.3 85.5 10.5 124.8 33.2 43.4 25.2 76.4 61.4 97.4 103L264 133.4c-58.1-3.4-113.4 29.3-132.5 84.1zm32.9 38.5c0 46.2 37.4 83.6 83.6 83.6s83.6-37.4 83.6-83.6-37.4-83.6-83.6-83.6-83.6 37.3-83.6 83.6zm314.9-89.2L339.6 174c37.9 44.3 38.5 108.2 6.6 157.2L234.1 503.6c46.5 2.5 94.4-7.7 137.8-32.9 107.4-62 150.9-192 107.4-303.9zM133.7 303.6L40.4 120.1C14.9 159.1 0 205.9 0 256c0 124 90.8 226.7 209.5 244.9l63.7-124.8c-57.6 10.8-113.2-20.8-139.5-72.5z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 有道云笔记导出助手. Built for better data freedom.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

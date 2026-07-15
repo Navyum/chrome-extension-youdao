@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记导出助手博客 - 有道云笔记备份教程、Markdown 批量导出、特殊格式转换、Obsidian 迁移和数据安全指南。">
+    <meta name="keywords" content="有道云笔记导出教程,有道云笔记备份,有道云Markdown导出,有道云笔记迁移,Obsidian迁移,有道特殊格式导出">
+    <meta name="author" content="有道云笔记导出助手">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="有道云笔记导出助手博客">
+    <meta property="og:title" content="有道云笔记导出助手博客 - 备份、迁移与 Markdown 指南">
+    <meta property="og:description" content="有道云笔记备份教程、Markdown 批量导出、特殊格式转换、Obsidian 迁移和数据安全指南。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-hero-rescue.jpg">
+    <meta property="og:locale" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="有道云笔记导出助手博客 - 备份、迁移与 Markdown 指南">
+    <meta name="twitter:description" content="有道云笔记备份教程、Markdown 批量导出、特殊格式转换、Obsidian 迁移和数据安全指南。">
+    <meta name="twitter:image" content="https://youdao.openmeshx.com/images/blog-hero-rescue.jpg">
+
+    <meta name="theme-color" content="#060010">
+    <title>博客 - 有道云笔记导出助手 | 备份、迁移与 Markdown 指南</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <link rel="stylesheet" href="blog-index.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "有道云笔记导出助手博客",
+      "description": "有道云笔记备份教程、Markdown 批量导出、特殊格式转换、Obsidian 迁移和数据安全指南",
+      "url": "https://youdao.openmeshx.com/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "url": "https://youdao.openmeshx.com/"
+      },
+      "blogPost": [
+        { "@type": "BlogPosting", "headline": "2026年有道云笔记数据导出完全指南：3种方案对比与实操", "url": "https://youdao.openmeshx.com/blog/blog-third-person.html", "datePublished": "2026-07-15" },
+        { "@type": "BlogPosting", "headline": "有道云笔记怎么批量导出 Markdown？零命令行方案", "url": "https://youdao.openmeshx.com/blog/blog-export-markdown-guide.html", "datePublished": "2026-07-15" },
+        { "@type": "BlogPosting", "headline": "表格、思维导图、白板怎么导出？有道特殊格式处理说明", "url": "https://youdao.openmeshx.com/blog/blog-special-formats.html", "datePublished": "2026-07-15" },
+        { "@type": "BlogPosting", "headline": "把有道云笔记迁移到 Obsidian：目录、图片和检查清单", "url": "https://youdao.openmeshx.com/blog/blog-obsidian.html", "datePublished": "2026-07-15" },
+        { "@type": "BlogPosting", "headline": "有道云笔记本地备份策略：什么时候导、导完怎么验", "url": "https://youdao.openmeshx.com/blog/blog-backup-strategy.html", "datePublished": "2026-07-15" },
+        { "@type": "BlogPosting", "headline": "技术复盘：Chrome 扩展如何批量导出有道云笔记", "url": "https://youdao.openmeshx.com/blog/blog-technical-deep-dive.html", "datePublished": "2026-07-15" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://youdao.openmeshx.com/" },
+        { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://youdao.openmeshx.com/blog/" }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <header class="blog-page-header">
+        <h1 class="blog-page-h1">有道云笔记导出助手博客 - 备份、迁移与 Markdown 指南</h1>
+    </header>
+
+    <div class="blog-hero-container">
+        <article class="blog-main-feature">
+            <a href="blog-third-person.html" class="blog-main-feature-img">
+                <img src="../images/blog-hero-rescue.jpg" alt="有道云笔记批量导出到本地">
+            </a>
+            <div class="blog-main-feature-content">
+                <div class="blog-card-category">方案对比</div>
+                <h2 class="blog-main-feature-title">
+                    <a href="blog-third-person.html">2026年有道云笔记数据导出完全指南：3种方案对比与实操</a>
+                </h2>
+                <p class="blog-main-feature-desc">
+                    从官方逐篇导出、命令行脚本到 Chrome 扩展，梳理不同导出方案的门槛、完整性、资源处理和隐私边界。
+                </p>
+                <div class="blog-meta">
+                    <span>文/效率君</span>
+                    <span>2026-07-15</span>
+                    <span>10 分钟阅读</span>
+                </div>
+            </div>
+        </article>
+
+        <aside class="blog-featured-list">
+            <h3 class="blog-section-title">热门推荐</h3>
+
+            <article class="blog-list-item">
+                <div class="blog-card-category">实用教程</div>
+                <h4 class="blog-list-title">
+                    <a href="blog-export-markdown-guide.html">有道云笔记怎么批量导出 Markdown？零命令行方案</a>
+                </h4>
+                <div class="blog-meta">8分钟阅读</div>
+            </article>
+
+            <article class="blog-list-item">
+                <div class="blog-card-category">格式转换</div>
+                <h4 class="blog-list-title">
+                    <a href="blog-special-formats.html">表格、思维导图、白板怎么导出？特殊格式处理说明</a>
+                </h4>
+                <div class="blog-meta">7分钟阅读</div>
+            </article>
+
+            <article class="blog-list-item">
+                <div class="blog-card-category">迁移教程</div>
+                <h4 class="blog-list-title">
+                    <a href="blog-obsidian.html">把有道云笔记迁移到 Obsidian：目录、图片和检查清单</a>
+                </h4>
+                <div class="blog-meta">8分钟阅读</div>
+            </article>
+
+            <article class="blog-list-item">
+                <div class="blog-card-category">技术复盘</div>
+                <h4 class="blog-list-title">
+                    <a href="blog-technical-deep-dive.html">Chrome 扩展如何批量导出有道云笔记</a>
+                </h4>
+                <div class="blog-meta">9分钟阅读</div>
+            </article>
+        </aside>
+    </div>
+
+    <section class="blog-grid-section">
+        <div class="blog-grid-header">
+            <h2 class="blog-grid-title">最新文章</h2>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <a href="blog-export-markdown-guide.html" class="blog-card-visual">
+                    <img src="../images/blog-markdown.jpg" alt="有道云笔记导出 Markdown 指南">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">实用教程</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-export-markdown-guide.html">有道云笔记怎么批量导出 Markdown？零命令行方案</a>
+                    </h3>
+                    <p class="blog-card-desc">从登录、加载笔记本、选择范围到下载 ZIP，完整拆解批量导出的操作流程。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>8分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <a href="blog-special-formats.html" class="blog-card-visual">
+                    <img src="../images/blog-special-formats.jpg" alt="有道云笔记特殊格式转换说明">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">格式转换</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-special-formats.html">表格、思维导图、白板怎么导出？有道特殊格式处理说明</a>
+                    </h3>
+                    <p class="blog-card-desc">说明 .lxtable、.mindmap、Draw.io、Excalidraw 和图片文件如何转换。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>7分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <a href="blog-obsidian.html" class="blog-card-visual">
+                    <img src="../images/blog-obsidian.jpg" alt="有道云笔记迁移到 Obsidian">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">迁移教程</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-obsidian.html">把有道云笔记迁移到 Obsidian：目录、图片和检查清单</a>
+                    </h3>
+                    <p class="blog-card-desc">把 ZIP 解压为 Vault，检查图片相对路径、文件夹层级和特殊格式转换结果。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>8分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <a href="blog-backup-strategy.html" class="blog-card-visual">
+                    <img src="../images/blog-backup.jpg" alt="有道云笔记本地备份策略">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">数据安全</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-backup-strategy.html">有道云笔记本地备份策略：什么时候导、导完怎么验</a>
+                    </h3>
+                    <p class="blog-card-desc">从备份频率、完整性检查到多地保存，建立可持续的数据归档流程。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>6分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <a href="blog-technical-deep-dive.html" class="blog-card-visual">
+                    <img src="../images/blog-technical.jpg" alt="有道云笔记导出技术复盘">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">技术复盘</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-technical-deep-dive.html">技术复盘：Chrome 扩展如何批量导出有道云笔记</a>
+                    </h3>
+                    <p class="blog-card-desc">拆解 MV3 后台任务、有道 API、转换器、资源本地化和 ZIP 构建流程。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>9分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <a href="blog-third-person.html" class="blog-card-visual">
+                    <img src="../images/blog-hero-rescue.jpg" alt="有道云笔记导出方案对比">
+                </a>
+                <div class="blog-card-content">
+                    <div class="blog-card-category">方案对比</div>
+                    <h3 class="blog-card-title">
+                        <a href="blog-third-person.html">2026年有道云笔记数据导出完全指南：3种方案对比与实操</a>
+                    </h3>
+                    <p class="blog-card-desc">官方导出、命令行工具和 Chrome 扩展分别适合什么人，优缺点一次讲清。</p>
+                    <div class="blog-card-meta">
+                        <span>2026-07-15</span>
+                        <span>10分钟阅读</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

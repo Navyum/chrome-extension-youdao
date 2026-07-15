@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记本地备份策略：如何决定备份频率、导出范围、完整性检查和多地保存方式，降低云笔记迁移与数据丢失风险。">
+    <meta name="keywords" content="有道云笔记备份,云笔记本地备份,Markdown归档,数据备份策略">
+    <meta name="author" content="老周">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-backup-strategy.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="有道云笔记本地备份策略：什么时候导、导完怎么验">
+    <meta property="og:description" content="从备份频率、完整性检查到多地保存，建立可持续的数据归档流程。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-backup-strategy.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-backup.jpg">
+
+    <title>有道云笔记本地备份策略：什么时候导、导完怎么验 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "有道云笔记本地备份策略：什么时候导、导完怎么验",
+      "description": "有道云笔记本地备份策略和检查清单。",
+      "image": "https://youdao.openmeshx.com/images/blog-backup.jpg",
+      "author": { "@type": "Person", "name": "老周" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-backup-strategy.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">有道云笔记本地备份策略：什么时候导、导完怎么验</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">6分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>老周 · 数据安全</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-15">2026年7月15日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>备份不是“想起来导一次”，而是一套可重复的流程。</strong>对于长期使用有道云笔记的人，建议把导出、检查和多地保存固定下来。</p>
+
+                    <h2>什么时候需要备份</h2>
+                    <ul>
+                        <li>准备迁移到 Obsidian、Notion、Logseq 或其他工具前。</li>
+                        <li>完成一批重要学习、项目或工作记录后。</li>
+                        <li>账号权限、订阅策略或客户端体验发生变化时。</li>
+                        <li>固定周期，例如每月或每季度一次。</li>
+                    </ul>
+
+                    <h2>备份范围怎么选</h2>
+                    <p>如果只是迁移某个项目，可以只导出对应文件夹；如果是灾备，建议全量导出。第一次全量导出后，可以按新增或高价值笔记本做增量归档。</p>
+
+                    <h2>导完怎么验</h2>
+                    <table>
+                        <thead>
+                            <tr><th>检查项</th><th>建议</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ZIP 是否可解压</td><td>导出后立即解压一次，避免保存损坏文件。</td></tr>
+                            <tr><td>文件数量</td><td>对照扩展统计或笔记本大致规模。</td></tr>
+                            <tr><td>图片显示</td><td>抽查含图片的笔记。</td></tr>
+                            <tr><td>特殊格式</td><td>抽查表格、思维导图和白板。</td></tr>
+                            <tr><td>重要笔记</td><td>优先检查合同、项目、课程和长期资料。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>保存在哪里</h2>
+                    <p>建议保留至少两份副本：一份在本地硬盘，一份在你信任的云盘或外部硬盘。文件名可以带上日期，例如 <code>YoudaoNote-Export-2026-07-15.zip</code>，方便追溯。</p>
+
+                    <h2>不要立刻删除原始数据</h2>
+                    <p>迁移完成后，建议保留有道云笔记原始内容一段时间。等你确认新工具里的图片、目录和重要内容都稳定后，再决定是否整理云端旧数据。</p>
+
+                    <h2>写在最后</h2>
+                    <p>Markdown 备份的价值在于可读、可搜索、可迁移。只要定期导出并认真抽查，你就不会把多年笔记完全押在单一平台上。</p>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">本地备份</span>
+                        <span class="article-tag">数据安全</span>
+                        <span class="article-tag">Markdown 归档</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>

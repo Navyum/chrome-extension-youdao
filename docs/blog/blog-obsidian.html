@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="把有道云笔记迁移到 Obsidian 的完整流程：导出 Markdown ZIP、解压为 Vault、检查图片相对路径、目录层级和特殊格式转换结果。">
+    <meta name="keywords" content="有道云笔记迁移Obsidian,有道云笔记导出Markdown,Obsidian导入Markdown,有道云笔记备份">
+    <meta name="author" content="阿辰">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-obsidian.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="把有道云笔记迁移到 Obsidian：目录、图片和检查清单">
+    <meta property="og:description" content="如何把导出的 ZIP 解压为 Obsidian Vault，并检查图片、层级和特殊格式结果。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-obsidian.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-obsidian.jpg">
+
+    <title>把有道云笔记迁移到 Obsidian：目录、图片和检查清单 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "把有道云笔记迁移到 Obsidian：目录、图片和检查清单",
+      "description": "有道云笔记导出后迁移到 Obsidian 的完整流程。",
+      "image": "https://youdao.openmeshx.com/images/blog-obsidian.jpg",
+      "author": { "@type": "Person", "name": "阿辰" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-obsidian.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">把有道云笔记迁移到 Obsidian：目录、图片和检查清单</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">8分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>阿辰 · Obsidian 迁移</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-15">2026年7月15日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>Obsidian 以本地 Markdown 文件为核心，所以有道云笔记迁移到 Obsidian 的关键，是拿到结构清晰、图片可离线访问的 .md 文件夹。</strong></p>
+
+                    <h2>迁移流程总览</h2>
+                    <ol>
+                        <li>在浏览器中登录 <code>note.youdao.com</code>。</li>
+                        <li>使用有道云笔记导出助手选择要迁移的笔记本。</li>
+                        <li>等待导出完成，下载 ZIP。</li>
+                        <li>解压 ZIP 到一个稳定目录，例如 <code>Documents/Obsidian/YoudaoVault</code>。</li>
+                        <li>在 Obsidian 中选择“打开本地仓库”，指向解压后的目录。</li>
+                    </ol>
+
+                    <h2>为什么不要直接复制粘贴</h2>
+                    <p>复制粘贴适合少量内容，但一旦涉及图片、目录和白板，就很难保证完整。导出助手会把依赖资源保存到本地 assets 目录，让 Obsidian 离线也能显示图片和 SVG。</p>
+
+                    <h2>推荐目录结构</h2>
+                    <pre><code>YoudaoVault/
+  工作/
+    周会.md
+    项目复盘.md
+    assets/
+      周会_001.png
+  读书/
+    读书笔记.md
+  个人/
+    灵感.md</code></pre>
+                    <p>这种结构会保留有道云笔记中的笔记本和文件夹层级，也符合 Obsidian 的本地文件管理方式。</p>
+
+                    <h2>迁移后检查清单</h2>
+                    <table>
+                        <thead>
+                            <tr><th>检查项</th><th>处理方式</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>图片是否显示</td><td>打开含图笔记，确认相对路径可用。</td></tr>
+                            <tr><td>目录是否完整</td><td>对照有道云笔记的笔记本树抽查。</td></tr>
+                            <tr><td>表格是否可读</td><td>检查 Markdown 表格列宽和内容。</td></tr>
+                            <tr><td>思维导图层级</td><td>确认列表缩进是否符合原始结构。</td></tr>
+                            <tr><td>白板资源</td><td>确认 SVG 文件在 assets 中且链接正确。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Obsidian 设置建议</h2>
+                    <ul>
+                        <li>先不要开启复杂插件，确认基础内容导入正常。</li>
+                        <li>如果图片不显示，优先检查 Markdown 中的相对路径和 assets 目录位置。</li>
+                        <li>可以开启“文件列表”核心插件，按原目录浏览迁移结果。</li>
+                        <li>迁移完成后再根据个人习惯添加标签、双链和模板。</li>
+                    </ul>
+
+                    <h2>如何处理大量笔记</h2>
+                    <p>大量笔记建议分批迁移：先导出一个小笔记本验证，再导出全部内容。这样可以提前发现命名冲突、特殊格式或资源路径问题。</p>
+
+                    <h2>写在最后</h2>
+                    <p>Obsidian 的优势是本地文件可控，而有道云笔记导出助手的目标就是把云端内容整理成这套文件结构。迁移完成后，建议把 Vault 同步到你信任的位置，并保留原始 ZIP 作为归档。</p>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">Obsidian</span>
+                        <span class="article-tag">Markdown 迁移</span>
+                        <span class="article-tag">图片本地化</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>
