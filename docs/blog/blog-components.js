@@ -86,15 +86,30 @@
     `;
 
     const blogPosts = {
+        'blog-troubleshooting.html': {
+            title: '有道云笔记导出失败怎么办？登录、权限和资源排查清单',
+            shortTitle: '导出失败排查',
+            related: ['blog-export-markdown-guide.html', 'blog-special-formats.html']
+        },
+        'blog-organize-after-export.html': {
+            title: '有道云笔记导出后怎么整理？Markdown 目录、命名和归档流程',
+            shortTitle: '导出后整理归档',
+            related: ['blog-backup-strategy.html', 'blog-obsidian.html']
+        },
+        'blog-migrate-notion-logseq-typora.html': {
+            title: '有道云笔记导出后怎么导入 Notion、Typora 和 Logseq？',
+            shortTitle: '迁移到更多工具',
+            related: ['blog-export-markdown-guide.html', 'blog-organize-after-export.html']
+        },
         'blog-third-person.html': {
             title: '2026年有道云笔记数据导出完全指南：3种方案对比与实操',
             shortTitle: '3种导出方案对比',
-            related: ['blog-export-markdown-guide.html', 'blog-special-formats.html']
+            related: ['blog-export-markdown-guide.html', 'blog-troubleshooting.html']
         },
         'blog-export-markdown-guide.html': {
             title: '有道云笔记怎么批量导出 Markdown？零命令行方案',
             shortTitle: '批量导出 Markdown',
-            related: ['blog-obsidian.html', 'blog-backup-strategy.html']
+            related: ['blog-troubleshooting.html', 'blog-migrate-notion-logseq-typora.html']
         },
         'blog-special-formats.html': {
             title: '表格、思维导图、白板怎么导出？有道特殊格式处理说明',
@@ -104,12 +119,12 @@
         'blog-obsidian.html': {
             title: '把有道云笔记迁移到 Obsidian：目录、图片和检查清单',
             shortTitle: '迁移到 Obsidian',
-            related: ['blog-export-markdown-guide.html', 'blog-backup-strategy.html']
+            related: ['blog-migrate-notion-logseq-typora.html', 'blog-organize-after-export.html']
         },
         'blog-backup-strategy.html': {
             title: '有道云笔记本地备份策略：什么时候导、导完怎么验',
             shortTitle: '本地备份策略',
-            related: ['blog-third-person.html', 'blog-obsidian.html']
+            related: ['blog-organize-after-export.html', 'blog-troubleshooting.html']
         },
         'blog-technical-deep-dive.html': {
             title: '技术复盘：Chrome 扩展如何批量导出有道云笔记',

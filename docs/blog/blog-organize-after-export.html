@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记导出为 Markdown 后怎么整理？从解压目录、文件命名、assets 资源、重复笔记、归档版本和后续同步几个步骤建立长期可维护的本地笔记库。">
+    <meta name="keywords" content="有道云笔记导出后整理,Markdown笔记整理,有道云笔记归档,本地笔记库管理">
+    <meta name="author" content="季然">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-organize-after-export.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="有道云笔记导出后怎么整理？Markdown 目录、命名和归档流程">
+    <meta property="og:description" content="把导出的 ZIP 整理成可长期维护的本地 Markdown 笔记库，保留 assets 资源并建立版本归档习惯。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-organize-after-export.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-backup.jpg">
+
+    <title>有道云笔记导出后怎么整理？Markdown 目录、命名和归档流程 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "有道云笔记导出后怎么整理？Markdown 目录、命名和归档流程",
+      "description": "有道云笔记导出后的 Markdown 整理、命名和归档建议。",
+      "image": "https://youdao.openmeshx.com/images/blog-backup.jpg",
+      "author": { "@type": "Person", "name": "季然" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-21",
+      "dateModified": "2026-07-21",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-organize-after-export.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">有道云笔记导出后怎么整理？Markdown 目录、命名和归档流程</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">8分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>季然 · 本地归档</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-21">2026年7月21日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>导出只是第一步，真正决定笔记能不能长期复用的是整理方式。</strong>如果解压后随手拖动 Markdown 文件，很容易破坏图片路径，也很难分清哪份是最新备份。</p>
+
+                    <h2>保留原始 ZIP</h2>
+                    <p>每次导出完成后，先保留一份未经修改的 ZIP。它相当于这次备份的原始快照。建议文件名带日期和范围，例如：</p>
+                    <pre><code>YoudaoNote-All-2026-07-21.zip
+YoudaoNote-Work-2026-07-21.zip
+YoudaoNote-Reading-2026-07-21.zip</code></pre>
+                    <p>如果后续整理误删了文件或移动了 assets 目录，可以回到原始 ZIP 重新解压。</p>
+
+                    <h2>解压到稳定目录</h2>
+                    <p>不要把导出结果长期放在下载目录。可以为本地知识库准备一个固定位置：</p>
+                    <pre><code>Documents/
+  Notes/
+    YoudaoArchive/
+      2026-07-21/
+        工作/
+        读书/
+        项目/</code></pre>
+                    <p>固定目录能降低后续同步、搜索和迁移成本，也方便 Obsidian、Typora、VS Code 直接打开。</p>
+
+                    <h2>不要拆散 Markdown 和 assets</h2>
+                    <p>导出结果中的图片和白板资源通常位于同级 <code>assets/</code> 目录。整理时可以移动整个文件夹，但不要只移动单个 Markdown 文件。</p>
+                    <table>
+                        <thead>
+                            <tr><th>操作</th><th>风险</th><th>建议</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>只移动 .md 文件</td><td>图片链接失效</td><td>连同同级 assets 一起移动。</td></tr>
+                            <tr><td>重命名 assets</td><td>Markdown 路径不匹配</td><td>除非批量改链接，否则保持原名。</td></tr>
+                            <tr><td>合并多个文件夹</td><td>资源文件名冲突</td><td>先备份，再分批合并和抽查。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>先按来源目录整理，再做主题整理</h2>
+                    <p>有道云笔记里的笔记本层级通常承载了上下文。建议先保留原结构，等确认导出完整后，再按主题做二次整理。</p>
+                    <ol>
+                        <li>第一轮只做验收，不改目录。</li>
+                        <li>第二轮合并明显重复的文件夹。</li>
+                        <li>第三轮把长期项目、读书、个人资料等移入目标知识库。</li>
+                        <li>最后再补标签、双链或 frontmatter。</li>
+                    </ol>
+
+                    <h2>重复笔记怎么处理</h2>
+                    <p>迁移过程中常见重复来源包括历史备份、复制过的笔记、同名会议记录和多次导出的版本。不要一看到同名就删除，优先按内容和修改时间判断。</p>
+                    <ul>
+                        <li>同名但内容不同：保留，手动改名加日期或项目名。</li>
+                        <li>内容完全相同：保留最新路径，删除前确认图片链接仍可用。</li>
+                        <li>一篇是摘要、一篇是原文：不要合并，避免丢失上下文。</li>
+                    </ul>
+
+                    <h2>建立可重复的归档节奏</h2>
+                    <p>如果你还会继续使用有道云笔记，建议把导出变成固定流程。比如每月全量导出一次，重要项目结束后单独导出一次，并把每次 ZIP 保存在同一个归档目录。</p>
+
+                    <h2>整理完成后的检查</h2>
+                    <p>最后用目标工具打开整理后的文件夹，抽查图片、表格、思维导图和白板。只要本地路径没有被破坏，Markdown 就可以在多个工具之间自由移动。</p>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">Markdown 整理</span>
+                        <span class="article-tag">本地归档</span>
+                        <span class="article-tag">assets 资源</span>
+                        <span class="article-tag">笔记管理</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>

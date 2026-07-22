@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有道云笔记导出失败、加载不到笔记本、图片无法显示或 ZIP 下载异常怎么办？这篇排查清单帮助你从登录状态、站点权限、网络和笔记格式逐项定位。">
+    <meta name="keywords" content="有道云笔记导出失败,有道云笔记图片无法显示,有道云笔记备份失败,Chrome扩展导出排查">
+    <meta name="author" content="林青">
+    <link rel="canonical" href="https://youdao.openmeshx.com/blog/blog-troubleshooting.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="有道云笔记导出失败怎么办？登录、权限和资源排查清单">
+    <meta property="og:description" content="从登录状态、站点权限、导出范围、图片资源和 ZIP 下载几个方向排查有道云笔记导出失败问题。">
+    <meta property="og:url" content="https://youdao.openmeshx.com/blog/blog-troubleshooting.html">
+    <meta property="og:image" content="https://youdao.openmeshx.com/images/blog-technical.jpg">
+
+    <title>有道云笔记导出失败怎么办？登录、权限和资源排查清单 | 有道云笔记导出助手</title>
+    <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog-common.css">
+    <script defer src="blog-components.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "有道云笔记导出失败怎么办？登录、权限和资源排查清单",
+      "description": "有道云笔记导出失败、图片无法显示和 ZIP 下载异常的排查步骤。",
+      "image": "https://youdao.openmeshx.com/images/blog-technical.jpg",
+      "author": { "@type": "Person", "name": "林青" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "有道云笔记导出助手",
+        "logo": { "@type": "ImageObject", "url": "https://youdao.openmeshx.com/images/icon-36x36.png" }
+      },
+      "datePublished": "2026-07-21",
+      "dateModified": "2026-07-21",
+      "mainEntityOfPage": "https://youdao.openmeshx.com/blog/blog-troubleshooting.html"
+    }
+    </script>
+</head>
+
+<body>
+    <button class="mobile-toc-toggle" aria-label="打开目录">☰</button>
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar-left mobile-show">
+            <div class="toc-container">
+                <h3 class="toc-title">文章目录</h3>
+                <ul class="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main class="blog-main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">有道云笔记导出失败怎么办？登录、权限和资源排查清单</h1>
+                    <div class="article-meta">
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="reading-time">7分钟</span></span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>林青 · 问题排查</span>
+                        <span class="article-meta-item"><svg class="article-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time datetime="2026-07-21">2026年7月21日</time></span>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p><strong>批量导出失败时，不要先怀疑所有笔记都坏了。</strong>多数问题都集中在登录状态、Chrome 站点权限、导出范围过大、网络中断或少数特殊资源读取失败。</p>
+                    <p>下面这份清单按发生概率排序。建议先用一个小文件夹复现，再逐步扩大范围，这样更容易判断是环境问题还是某类笔记内容问题。</p>
+
+                    <h2>先确认登录状态</h2>
+                    <p>有道云笔记导出助手复用浏览器里 <code>note.youdao.com</code> 的登录状态，不需要你手动复制 Cookie。如果扩展提示未登录，先在同一个 Chrome 用户配置中打开有道云笔记网页端并刷新。</p>
+                    <ul>
+                        <li>确认不是在另一个 Chrome 个人资料里登录。</li>
+                        <li>确认无痕窗口没有阻止扩展读取站点状态。</li>
+                        <li>如果网页端已经过期，重新登录后再回到扩展弹窗。</li>
+                        <li>长时间导出前，避免中途退出有道账号。</li>
+                    </ul>
+
+                    <h2>检查扩展站点权限</h2>
+                    <p>如果笔记本树加载不到，常见原因是扩展没有访问有道域名的权限。打开 <code>chrome://extensions/</code>，进入扩展详情页，检查站点访问权限是否允许访问有道云笔记相关页面。</p>
+                    <blockquote>如果你刚刚修改过权限，建议重新打开扩展弹窗，再点击“加载笔记本”。</blockquote>
+
+                    <h2>缩小导出范围</h2>
+                    <p>第一次导出全量笔记时，图片、白板和历史资料较多的账号可能需要更长时间。可以先选择一个 10 到 30 篇笔记的小文件夹试导出，确认 ZIP 能正常生成，再导出更大的笔记本。</p>
+                    <table>
+                        <thead>
+                            <tr><th>现象</th><th>建议处理</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>一直停在加载笔记本</td><td>重新登录网页端，检查扩展站点权限。</td></tr>
+                            <tr><td>导出到一半变慢</td><td>等待后台任务处理大图、白板或特殊格式。</td></tr>
+                            <tr><td>某几篇失败</td><td>先下载成功部分，再单独导出失败笔记所在文件夹。</td></tr>
+                            <tr><td>ZIP 没有出现</td><td>检查浏览器下载权限、磁盘空间和下载目录。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>图片无法显示怎么办</h2>
+                    <p>导出后的 Markdown 通过相对路径引用同级 <code>assets/</code> 目录。图片无法显示时，先确认 Markdown 文件和 assets 文件夹没有被分开放置。</p>
+                    <ol>
+                        <li>解压 ZIP 后不要只移动单个 <code>.md</code> 文件。</li>
+                        <li>打开 Markdown，检查图片链接是否指向 <code>assets/xxx</code>。</li>
+                        <li>确认资源文件确实存在于同级 assets 目录。</li>
+                        <li>如果只有少数图片缺失，回到原笔记检查图片是否仍能在有道网页端打开。</li>
+                    </ol>
+
+                    <h2>特殊格式失败怎么判断</h2>
+                    <p>表格、思维导图、Draw.io 和 Excalidraw 这类内容会经过专门转换。若普通笔记都成功，只有特殊格式失败，可以优先抽查这类笔记。</p>
+                    <ul>
+                        <li>表格会尽量转换为 Markdown table。</li>
+                        <li>思维导图会展开为 Markdown 层级列表。</li>
+                        <li>Draw.io 和 Excalidraw 会生成本地 SVG 资源并在 Markdown 中引用。</li>
+                        <li>图片文件会生成一个 Markdown 包装文件，并把图片保存到 assets。</li>
+                    </ul>
+                    <p>更详细的格式说明可以看 <a href="blog-special-formats.html">有道特殊格式处理说明</a>。</p>
+
+                    <h2>导出完成后立刻做一次验收</h2>
+                    <p>不要把 ZIP 下载完成等同于备份完成。建议马上解压，随机打开 5 到 10 篇笔记，重点检查图片、表格、目录层级和你最重要的资料。</p>
+
+                    <h2>什么时候需要反馈问题</h2>
+                    <p>如果你已经确认登录、权限、网络和磁盘空间都正常，但稳定复现同一类失败，可以在 GitHub Issue 中提供扩展版本、浏览器版本、失败现象、是否含图片或特殊格式，以及是否能用小文件夹复现。不要上传包含隐私的原始笔记内容。</p>
+                </div>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">问题排查</span>
+                        <span class="article-tag">导出失败</span>
+                        <span class="article-tag">图片本地化</span>
+                        <span class="article-tag">Chrome 扩展</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar-right"></aside>
+    </div>
+
+    <script src="blog-common.js"></script>
+</body>
+
+</html>
